@@ -25,9 +25,9 @@ routes.post(
   /*   ensureAuthenticateClient, */
   createCarryingController.handle
 );
-routes.get("/carrying/", getCarryingController.handle);
+routes.get("/carrying/", getCarryingController.findAll);
 
-routes.get("/carrying/:id", getCarryingController.handle);
+routes.get("/carrying/:id", getCarryingController.findOne);
 
 routes.delete("/:id", deleteCarryingController.handle);
 
