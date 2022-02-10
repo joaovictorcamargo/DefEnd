@@ -46,6 +46,7 @@ export class CreateCarryingUseCase {
     if (carryingExiste) {
       throw new Error("Carrying alredy exists");
     }
+
     //Salvar a transportadora
     const carrying = await prisma.carrying.create({
       data: {
