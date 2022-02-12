@@ -20,16 +20,16 @@ routes.post("/authenticate", authenticateClientController.handle);
 
 routes.post("/client/", createClientController.handle);
 
-routes.post(
-  "/carrying/",
-  /*   ensureAuthenticateClient, */
-  createCarryingController.handle
-);
+routes.post("/carrying/", createCarryingController.handle);
 routes.get("/carrying/", getCarryingController.findAll);
 
 routes.get("/carrying/:id", getCarryingController.findOne);
 
-routes.delete("/:id", deleteCarryingController.handle);
+routes.delete(
+  "/:id",
+  /* ensureAuthenticateClient, */
+  deleteCarryingController.handle
+);
 
 routes.put("/carrying/", updateCarryingController.handle);
 

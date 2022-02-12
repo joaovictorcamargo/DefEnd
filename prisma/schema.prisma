@@ -19,23 +19,24 @@ model Client {
 }
 
 model Carrying {
-  id            String      @id @default(uuid())
-  typeOfPerson  String      
-  cnpj          String @unique
+  id                String      @id @default(uuid())
+  typeOfPerson      String      
+  cnpj              String @unique
   stateRegistration String
-  socialReason String
-  fantasyName String
-  cep String
-  street String
-  number String
-  neighborhood String
-  city String
-  state String
-   email      String      @unique
-   phone String      @unique
-   Observation String
-  created_at DateTime    @default(now())
-  updated_at DateTime    @updatedAt
+  socialReason      String
+  fantasyName       String
+  cep               String
+  street            String
+  number            String
+  neighborhood      String
+  city              String
+  state             String
+   email            String @unique
+   phone            String @unique
+   Observation      String
+
+  created_at        DateTime    @default(now())
+  updated_at        DateTime    @updatedAt
 
 
   @@map("carryings")

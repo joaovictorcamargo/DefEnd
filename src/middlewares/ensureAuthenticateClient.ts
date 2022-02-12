@@ -1,10 +1,6 @@
 /* import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
-interface IPayload {
-  sub: string;
-}
-
 export async function ensureAuthenticateClient(
   request: Request,
   response: Response,
@@ -14,27 +10,23 @@ export async function ensureAuthenticateClient(
 
   if (!authHeader) {
     return response.status(401).json({
-      message: "Token missing",
+      message: "Token is missing",
     });
   }
 
-  // Bearer token
+  //Bearer 2345678902220203
   //[0] => Bearer
-  //[1] => token
+  //[1] => Token
   const [, token] = authHeader.split("");
 
   try {
-    const { sub } = verify(
-      token,
-      "8b353d5cc07e13577608711f4602fcb7"
-    ) as IPayload;
-
-    request.cnpj = sub;
+    const { sub } = verify(token, "8b353d5cc07e13577608711f4602fcb7");
+    console.log("sub =>", sub);
 
     return next();
   } catch (err) {
     return response.status(401).json({
-      message: "Invalid Token",
+      message: "Token is missing",
     });
   }
 }
