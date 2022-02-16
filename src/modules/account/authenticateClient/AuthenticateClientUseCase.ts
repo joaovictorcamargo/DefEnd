@@ -5,16 +5,18 @@ import { sign } from "jsonwebtoken";
 interface IAuthenticateClient {
   username: string;
   password: string;
+  id: string;
 }
 
 export class AuthenticateClientUseCase {
-  async execute({ username, password }: IAuthenticateClient) {
+  async execute({ username, password, id }: IAuthenticateClient) {
     //Receber username e password
 
     //verificar se username cadastrado
     const client = await prisma.client.findFirst({
       where: {
         username,
+        id,
       },
     });
 
@@ -33,6 +35,6 @@ export class AuthenticateClientUseCase {
       expiresIn: "1d",
     });
 
-    return token;
+    return { user: { username, id: client.id }, token };
   }
 }

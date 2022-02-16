@@ -3,10 +3,11 @@ import { AuthenticateClientUseCase } from "./AuthenticateClientUseCase";
 
 export class AuthenticateClientController {
   async handle(request: Request, response: Response) {
-    const { username, password } = request.body;
+    const { id, username, password } = request.body;
 
     const authenticateClientUseCase = new AuthenticateClientUseCase();
     const result = await authenticateClientUseCase.execute({
+      id,
       username,
       password,
     });
