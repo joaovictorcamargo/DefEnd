@@ -8,6 +8,7 @@ interface ICreateClient {
 
 export class CreateClientUseCase {
   async execute({ username, password }: ICreateClient) {
+    //validate if client exists
     const clientExists = await prisma.client.findFirst({
       where: {
         username: {

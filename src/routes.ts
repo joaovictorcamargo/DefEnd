@@ -1,6 +1,9 @@
 import { Router } from "express";
-/* import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient";
- */ import { AuthenticateClientController } from "./modules/account/authenticateClient/AuthenticateClientController";
+/* import auth from "./middlewares/ensureAuthenticateClient";
+ 
+ */
+import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient";
+import { AuthenticateClientController } from "./modules/account/authenticateClient/AuthenticateClientController";
 import { CreateCarryingController } from "./modules/carryings/useCases/CreateCarrying/CreateCarryingController";
 import { DeleteCarryingController } from "./modules/carryings/useCases/DeleteCarrying/DeleteCarryingController";
 import { GetCarryingController } from "./modules/carryings/useCases/GetCarrying/GetCarryingController";
@@ -18,14 +21,13 @@ const deleteCarryingController = new DeleteCarryingController();
 const updateCarryingController = new UpdateCarryingController();
 const getClientController = new GetClientController();
 
+routes.post("/client/", createClientController.handle);
+routes.get("/carrying/", getCarryingController.findAll);
 routes.post("/authenticate", authenticateClientController.handle);
 
-routes.post("/client/", createClientController.handle);
-
 routes.post("/carrying/", createCarryingController.handle);
-routes.get("/carrying/", getCarryingController.findAll);
 routes.get("/client/:id", getClientController.findOne);
-routes.get("/client/", getClientController.findAll);
+routes.get("/client/", ensureAuthenticateClient, getClientController.findAll);
 
 routes.get("/carrying/:id", getCarryingController.findOne);
 
