@@ -22,21 +22,38 @@ const updateCarryingController = new UpdateCarryingController();
 const getClientController = new GetClientController();
 
 routes.post("/client/", createClientController.handle);
-routes.get("/carrying/", getCarryingController.findAll);
+
+routes.get(
+  "/carrying/",
+  ensureAuthenticateClient,
+  getCarryingController.findAll
+);
 routes.post("/authenticate", authenticateClientController.handle);
 
-routes.post("/carrying/", createCarryingController.handle);
-routes.get("/client/:id", getClientController.findOne);
+routes.post(
+  "/carrying/",
+  ensureAuthenticateClient,
+  createCarryingController.handle
+);
+routes.get(
+  "/client/:id",
+  ensureAuthenticateClient,
+  getClientController.findOne
+);
 routes.get("/client/", ensureAuthenticateClient, getClientController.findAll);
 
-routes.get("/carrying/:id", getCarryingController.findOne);
+routes.get(
+  "/carrying/:id",
+  ensureAuthenticateClient,
+  getCarryingController.findOne
+);
 
 routes.delete(
   "/:id",
-  /* ensureAuthenticateClient, */
+  ensureAuthenticateClient,
   deleteCarryingController.handle
 );
 
-routes.put("/:id", updateCarryingController.handle);
+routes.put("/:id", ensureAuthenticateClient, updateCarryingController.handle);
 
 export { routes };
