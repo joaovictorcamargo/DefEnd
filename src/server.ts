@@ -27,4 +27,4 @@ app.use(
   }
 );
 
-app.listen(3000, () => console.log("Server is runing 🚀"));
+app.listen(process.env.PORT || 3000, () => console.log("Server is runing 🚀"));
