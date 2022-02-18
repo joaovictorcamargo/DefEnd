@@ -15,7 +15,12 @@ app.use(routes);
 
 //MidleWare
 app.use(
-  (err: Error, request: Request, response: Response, next: NextFunction) => {
+  (
+    err: Error,
+    request: typeof Request,
+    response: typeof Response,
+    next: typeof NextFunction
+  ) => {
     if (err instanceof Error) {
       return response.status(400).json({
         message: err.message,
