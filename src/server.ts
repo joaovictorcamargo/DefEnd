@@ -3,7 +3,7 @@ require("express-async-errors");
 const { NextFunction, Request, Response } = require("express");
 const { cors } = require("cors");
 
-import { routes } from "./routes";
+const { routes } = require("./routes");
 
 const app = express();
 
