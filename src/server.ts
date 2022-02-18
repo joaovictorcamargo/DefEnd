@@ -14,16 +14,17 @@ app.use(express.json());
 app.use(routes);
 
 //MidleWare
-app.use(
-  (
-    error: Error,
+app
+  .use
+  /*  (
+    err: Error,
     request: typeof Request,
     response: typeof Response,
     next: typeof NextFunction
   ) => {
-    if (error instanceof Error) {
+    if (err instanceof Error) {
       return response.status(400).json({
-        message: error.message,
+        message: err.message,
       });
     }
 
@@ -31,7 +32,7 @@ app.use(
       status: "error",
       message: "Internal server error",
     });
-  }
-);
+  } */
+  ();
 
 app.listen(process.env.PORT || 3000, () => console.log("Server is runing 🚀"));
