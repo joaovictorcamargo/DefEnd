@@ -1,9 +1,7 @@
-const express = require("express");
-require("express-async-errors");
-const { NextFunction, Request, Response } = require("express");
-const { cors } = require("cors");
-
-const { routes } = require("./routes");
+import express, { NextFunction, Request, Response } from "express";
+import "express-async-errors";
+import { routes } from "./routes";
+import cors from "cors";
 
 const app = express();
 
@@ -14,13 +12,8 @@ app.use(express.json());
 app.use(routes);
 
 //MidleWare
-/* app.use(
-  (
-    err: Error,
-    request: typeof Request,
-    response: typeof Response,
-    next: typeof NextFunction
-  ) => {
+app.use(
+  (err: Error, request: Request, response: Response, next: NextFunction) => {
     if (err instanceof Error) {
       return response.status(400).json({
         message: err.message,
@@ -32,6 +25,6 @@ app.use(routes);
       message: "Internal server error",
     });
   }
-); */
+);
 
 app.listen(process.env.PORT || 3000, () => console.log("Server is runing 🚀"));
