@@ -1,6 +1,8 @@
-const { express, NextFunction, Request, Response } = require("express");
+const express = require("express");
+require("express-async-errors");
+const { NextFunction, Request, Response } = require("express");
 const { cors } = require("cors");
-import "express-async-errors";
+
 import { routes } from "./routes";
 
 const app = express();
