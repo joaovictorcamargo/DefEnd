@@ -6,5 +6,7 @@
     "lib": ["esnext"],
     "esModuleInterop": true
   },
-  "outDir": "./dist"
+  "outDir": "./dist",
+  "target": "esnext",
+  "module": "commonjs"
 }
