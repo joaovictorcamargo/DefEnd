@@ -1,6 +1,9 @@
 import { compare } from "bcrypt";
+import express from "express";
 import { sign } from "jsonwebtoken";
 import { prisma } from "../../../database/prismaClient";
+const crypto = require("crypto");
+const router = express.Router();
 
 interface IAuthenticateClient {
   username: string;
