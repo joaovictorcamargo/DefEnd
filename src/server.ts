@@ -1,4 +1,4 @@
-const { express, NextFunction, Request, Response } = require("express");
+import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import { routes } from "./routes";
 import cors from "cors";

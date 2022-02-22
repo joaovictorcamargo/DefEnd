@@ -4,6 +4,7 @@ import { Router } from "express";
  */
 import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient";
 import { AuthenticateClientController } from "./modules/account/authenticateClient/AuthenticateClientController";
+import { ForgotClientController } from "./modules/account/ForgotPassword/ForgotPasswordController";
 import { CreateCarryingController } from "./modules/carryings/useCases/CreateCarrying/CreateCarryingController";
 import { DeleteCarryingController } from "./modules/carryings/useCases/DeleteCarrying/DeleteCarryingController";
 import { GetCarryingController } from "./modules/carryings/useCases/GetCarrying/GetCarryingController";
@@ -20,8 +21,11 @@ const getCarryingController = new GetCarryingController();
 const deleteCarryingController = new DeleteCarryingController();
 const updateCarryingController = new UpdateCarryingController();
 const getClientController = new GetClientController();
+const forgotClientController = new ForgotClientController();
 
 routes.post("/client/", createClientController.handle);
+
+routes.post("/forgot-password", forgotClientController.handle);
 
 routes.get(
   "/carrying/",
