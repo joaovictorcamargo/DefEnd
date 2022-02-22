@@ -39,10 +39,15 @@ export class ForgotPasswordUseCase {
         html: `<p>Olá sua nova senha para acessar o sitema é: ${newPassword}</p><br/><a href="http://localhost:3000/login>Sistema</a>`,
       })
       .then(() => {
-        bcrypt.hash(newPassword, 8).then((password) => {
-          getRepository(username)
+        bcrypt.hash(newPassword, 8).then(async (password) => {
+          /*  getRepository(username)
             .update(username[0], {
               password,
+            }) */
+          const user = await prisma.client
+            .update({
+              where: { username },
+              data: { password },
             })
 
             .then(() => {
