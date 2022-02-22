@@ -25,6 +25,7 @@ const forgotClientController = new ForgotClientController();
 
 routes.post("/client/", createClientController.handle);
 
+//forgot
 routes.post("/forgot-password", forgotClientController.handle);
 
 routes.get(
