@@ -1,6 +1,9 @@
 {
   "name": "frete",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "type": "module",
   "main": "index.js",
   "license": "MIT",
