@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteCarryingController = void 0;
 var prismaClient_1 = require("../../../../database/prismaClient");
 var DeleteCarryingController = /** @class */ (function () {
@@ -48,10 +48,10 @@ var DeleteCarryingController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         id = request.params.id;
-                        return [4 /*yield*/, prismaClient_1.prisma.carrying["delete"]({
+                        return [4 /*yield*/, prismaClient_1.prisma.carrying.delete({
                                 where: {
-                                    id: id
-                                }
+                                    id: id,
+                                },
                             })];
                     case 1:
                         deletCarrying = _a.sent();

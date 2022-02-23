@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateCarryingController = void 0;
 var prismaClient_1 = require("../../../../database/prismaClient");
 var UpdateCarryingController = /** @class */ (function () {
@@ -50,7 +50,7 @@ var UpdateCarryingController = /** @class */ (function () {
                         _a = request.body, id = _a.id, typeOfPerson = _a.typeOfPerson, cnpj = _a.cnpj, stateRegistration = _a.stateRegistration, socialReason = _a.socialReason, fantasyName = _a.fantasyName, cep = _a.cep, street = _a.street, number = _a.number, neighborhood = _a.neighborhood, city = _a.city, state = _a.state, email = _a.email, phone = _a.phone, Observation = _a.Observation;
                         return [4 /*yield*/, prismaClient_1.prisma.carrying.update({
                                 where: {
-                                    id: id
+                                    id: id,
                                 },
                                 data: {
                                     typeOfPerson: typeOfPerson,
@@ -66,8 +66,8 @@ var UpdateCarryingController = /** @class */ (function () {
                                     state: state,
                                     email: email,
                                     phone: phone,
-                                    Observation: Observation
-                                }
+                                    Observation: Observation,
+                                },
                             })];
                     case 1:
                         updateCarrying = _b.sent();

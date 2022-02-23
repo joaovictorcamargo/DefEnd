@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ensureAuthenticateClient = void 0;
 var jsonwebtoken_1 = require("jsonwebtoken");
 function ensureAuthenticateClient(req, res, next) {
@@ -45,7 +45,7 @@ function ensureAuthenticateClient(req, res, next) {
             authHeader = req.headers.authorization;
             if (!authHeader) {
                 return [2 /*return*/, res.status(401).json({
-                        message: "Token missing"
+                        message: "Token missing",
                     })];
             }
             _a = authHeader.split(" "), token = _a[1];
@@ -56,7 +56,7 @@ function ensureAuthenticateClient(req, res, next) {
             }
             catch (err) {
                 return [2 /*return*/, res.status(401).json({
-                        message: "Invalid token!"
+                        message: "Invalid token!",
                     })];
             }
             return [2 /*return*/];

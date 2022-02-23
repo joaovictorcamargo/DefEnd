@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateCarryingUseCase = void 0;
 var prismaClient_1 = require("../../../../database/prismaClient");
 var CreateCarryingUseCase = /** @class */ (function () {
@@ -50,9 +50,9 @@ var CreateCarryingUseCase = /** @class */ (function () {
                     case 0: return [4 /*yield*/, prismaClient_1.prisma.carrying.findFirst({
                             where: {
                                 email: {
-                                    equals: email
-                                }
-                            }
+                                    equals: email,
+                                },
+                            },
                         })];
                     case 1:
                         carryingExiste = _b.sent();
@@ -74,8 +74,8 @@ var CreateCarryingUseCase = /** @class */ (function () {
                                     state: state,
                                     email: email,
                                     phone: phone,
-                                    Observation: Observation
-                                }
+                                    Observation: Observation,
+                                },
                             })];
                     case 2:
                         carrying = _b.sent();

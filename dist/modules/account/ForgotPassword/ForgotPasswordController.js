@@ -36,42 +36,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetClientUseCase = void 0;
-var prismaClient_1 = require("../../../../database/prismaClient");
-var GetClientUseCase = /** @class */ (function () {
-    function GetClientUseCase() {
+exports.ForgotClientController = void 0;
+var ForgotPasswordUseCase_1 = require("./ForgotPasswordUseCase");
+var ForgotClientController = /** @class */ (function () {
+    function ForgotClientController() {
     }
-    GetClientUseCase.prototype.findAll = function () {
+    ForgotClientController.prototype.handle = function (request, response) {
         return __awaiter(this, void 0, void 0, function () {
-            var client;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, prismaClient_1.prisma.client.findMany()];
+            var _a, id, username, password, forgotPasswordUseCase, result;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = request.body, id = _a.id, username = _a.username, password = _a.password;
+                        forgotPasswordUseCase = new ForgotPasswordUseCase_1.ForgotPasswordUseCase();
+                        return [4 /*yield*/, forgotPasswordUseCase.execute({
+                                username: username,
+                            })];
                     case 1:
-                        client = _a.sent();
-                        return [2 /*return*/, client];
+                        result = _b.sent();
+                        return [2 /*return*/, response.json(result)];
                 }
             });
         });
     };
-    GetClientUseCase.prototype.findOne = function (id) {
-        return __awaiter(this, void 0, void 0, function () {
-            var client;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, prismaClient_1.prisma.client.findUnique({
-                            where: {
-                                id: id,
-                            },
-                        })];
-                    case 1:
-                        client = _a.sent();
-                        return [2 /*return*/, client];
-                }
-            });
-        });
-    };
-    return GetClientUseCase;
+    return ForgotClientController;
 }());
-exports.GetClientUseCase = GetClientUseCase;
-//# sourceMappingURL=GetClientUseCase.js.map
+exports.ForgotClientController = ForgotClientController;
+//# sourceMappingURL=ForgotPasswordController.js.map

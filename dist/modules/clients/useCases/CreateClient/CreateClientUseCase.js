@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateClientUseCase = void 0;
 var prismaClient_1 = require("../../../../database/prismaClient");
 var bcrypt_1 = require("bcrypt");
@@ -51,9 +51,10 @@ var CreateClientUseCase = /** @class */ (function () {
                     case 0: return [4 /*yield*/, prismaClient_1.prisma.client.findFirst({
                             where: {
                                 username: {
-                                    equals: username
-                                }
-                            }
+                                    equals: username,
+                                    /* mode: "insensitive", */
+                                },
+                            },
                         })];
                     case 1:
                         clientExists = _b.sent();
@@ -66,8 +67,8 @@ var CreateClientUseCase = /** @class */ (function () {
                         return [4 /*yield*/, prismaClient_1.prisma.client.create({
                                 data: {
                                     username: username,
-                                    password: hashPassword
-                                }
+                                    password: hashPassword,
+                                },
                             })];
                     case 3:
                         client = _b.sent();

@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateClientController = void 0;
 var CreateClientUseCase_1 = require("./CreateClientUseCase");
 var CreateClientController = /** @class */ (function () {
@@ -51,7 +51,7 @@ var CreateClientController = /** @class */ (function () {
                         createClientUseCase = new CreateClientUseCase_1.CreateClientUseCase();
                         return [4 /*yield*/, createClientUseCase.execute({
                                 username: username,
-                                password: password
+                                password: password,
                             })];
                     case 1:
                         result = _b.sent();

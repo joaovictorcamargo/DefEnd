@@ -35,11 +35,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthenticateClientUseCase = void 0;
 var bcrypt_1 = require("bcrypt");
+var express_1 = __importDefault(require("express"));
 var jsonwebtoken_1 = require("jsonwebtoken");
 var prismaClient_1 = require("../../../database/prismaClient");
+var crypto = require("crypto");
+var router = express_1.default.Router();
 var AuthenticateClientUseCase = /** @class */ (function () {
     function AuthenticateClientUseCase() {
     }
@@ -52,8 +58,8 @@ var AuthenticateClientUseCase = /** @class */ (function () {
                     case 0: return [4 /*yield*/, prismaClient_1.prisma.client.findFirst({
                             where: {
                                 username: username,
-                                id: id
-                            }
+                                id: id,
+                            },
                         })];
                     case 1:
                         client = _b.sent();
@@ -68,14 +74,14 @@ var AuthenticateClientUseCase = /** @class */ (function () {
                         }
                         token = (0, jsonwebtoken_1.sign)({ username: username }, "0x4d54s448sikglutrnremeiijfms74", {
                             subject: client.id,
-                            expiresIn: "1d"
+                            expiresIn: "1d",
                         });
                         return [2 /*return*/, {
                                 user: {
                                     password: password,
-                                    username: username
+                                    username: username,
                                 },
-                                token: token
+                                token: token,
                             }];
                 }
             });

@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
     "sourceMap": true,
     "outDir": "dist",
+    "rootDir": "./src",
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "lib": ["esnext"],
     "esModuleInterop": true
-  },
-  "outDir": "./dist"
+  }
 }
