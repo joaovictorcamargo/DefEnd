@@ -3,12 +3,29 @@ import { prisma } from "../../../../database/prismaClient";
 
 export class DeleteCarryingController {
   async handle(request: Request, response: Response) {
-    const id = request.params.id;
-    const deletCarrying = await prisma.carrying.delete({
+    const {
+      id,
+      typeOfPerson,
+      cnpj,
+      stateRegistration,
+      socialReason,
+      fantasyName,
+      cep,
+      street,
+      number,
+      neighborhood,
+      city,
+      state,
+      email,
+      phone,
+      Observation,
+    } = request.body;
+    console.log("delete =>", request.params);
+    const deleteCarrying = await prisma.carrying.delete({
       where: {
-        id: id,
+        id: request.params.id,
       },
     });
-    response.json(deletCarrying);
+    return response.json(deleteCarrying);
   }
 }
