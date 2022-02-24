@@ -1,17 +1,18 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider = "prisma-client-js"
+datasource db {
+  provider = "mongodb"
+  url      = env("mongodb+srv://admin:COqsrBo2cXJoH2Cl@cluster0.drqhl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 }
 
-datasource db {
-  provider = "sqlite"
-  url      = env("file:./dev.db")
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["mongoDb"]
 }
 
 model Client {
-  id       String @id @default(uuid())
+  id       String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   username String @unique
   password String
 
@@ -19,7 +20,7 @@ model Client {
 }
 
 model Carrying {
-  id                String      @id @default(uuid())
+   id       String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   typeOfPerson      String      
   cnpj              String @unique
   stateRegistration String
