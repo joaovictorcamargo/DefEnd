@@ -20,10 +20,12 @@ export class UpdateCarryingController {
       phone,
       Observation,
     } = request.body;
+    console.log(request.params);
     const updateCarrying = await prisma.carrying.update({
       where: {
-        id: id,
+        id: request.params.id,
       },
+
       data: {
         typeOfPerson: typeOfPerson,
         cnpj: cnpj,
@@ -41,6 +43,6 @@ export class UpdateCarryingController {
         Observation: Observation,
       },
     });
-    response.json(updateCarrying);
+    return response.json(updateCarrying);
   }
 }
