@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = "mongodb+srv://admin:COqsrBo2cXJoH2Cl@cluster0.drqhl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 }
 
 generator client {
