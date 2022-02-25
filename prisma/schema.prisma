@@ -12,7 +12,7 @@ generator client {
 }
 
 model Client {
-  id       String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id       String @id  @map("_id") @db.ObjectId
   username String @unique
   password String
 
@@ -20,7 +20,7 @@ model Client {
 }
 
 model Carrying {
-   id       String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+   id       String @id @map("_id") @db.ObjectId
   typeOfPerson      String      
   cnpj              String @unique
   stateRegistration String

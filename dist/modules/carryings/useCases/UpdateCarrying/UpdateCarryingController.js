@@ -48,9 +48,10 @@ var UpdateCarryingController = /** @class */ (function () {
                 switch (_b.label) {
                     case 0:
                         _a = request.body, id = _a.id, typeOfPerson = _a.typeOfPerson, cnpj = _a.cnpj, stateRegistration = _a.stateRegistration, socialReason = _a.socialReason, fantasyName = _a.fantasyName, cep = _a.cep, street = _a.street, number = _a.number, neighborhood = _a.neighborhood, city = _a.city, state = _a.state, email = _a.email, phone = _a.phone, Observation = _a.Observation;
+                        console.log(request.params);
                         return [4 /*yield*/, prismaClient_1.prisma.carrying.update({
                                 where: {
-                                    id: id,
+                                    id: request.params.id,
                                 },
                                 data: {
                                     typeOfPerson: typeOfPerson,
@@ -71,8 +72,7 @@ var UpdateCarryingController = /** @class */ (function () {
                             })];
                     case 1:
                         updateCarrying = _b.sent();
-                        response.json(updateCarrying);
-                        return [2 /*return*/];
+                        return [2 /*return*/, response.json(updateCarrying)];
                 }
             });
         });

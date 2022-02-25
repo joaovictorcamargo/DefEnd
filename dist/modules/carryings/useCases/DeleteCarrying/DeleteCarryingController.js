@@ -43,20 +43,20 @@ var DeleteCarryingController = /** @class */ (function () {
     }
     DeleteCarryingController.prototype.handle = function (request, response) {
         return __awaiter(this, void 0, void 0, function () {
-            var id, deletCarrying;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var _a, id, typeOfPerson, cnpj, stateRegistration, socialReason, fantasyName, cep, street, number, neighborhood, city, state, email, phone, Observation, deleteCarrying;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
-                        id = request.params.id;
+                        _a = request.body, id = _a.id, typeOfPerson = _a.typeOfPerson, cnpj = _a.cnpj, stateRegistration = _a.stateRegistration, socialReason = _a.socialReason, fantasyName = _a.fantasyName, cep = _a.cep, street = _a.street, number = _a.number, neighborhood = _a.neighborhood, city = _a.city, state = _a.state, email = _a.email, phone = _a.phone, Observation = _a.Observation;
+                        console.log("delete =>", request.params);
                         return [4 /*yield*/, prismaClient_1.prisma.carrying.delete({
                                 where: {
-                                    id: id,
+                                    id: request.params.id,
                                 },
                             })];
                     case 1:
-                        deletCarrying = _a.sent();
-                        response.json(deletCarrying);
-                        return [2 /*return*/];
+                        deleteCarrying = _b.sent();
+                        return [2 /*return*/, response.json(deleteCarrying)];
                 }
             });
         });
