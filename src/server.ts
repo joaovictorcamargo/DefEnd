@@ -1,7 +1,14 @@
-import express, { NextFunction, Request, Response } from "express";
+import express, {
+  NextFunction,
+  request,
+  response,
+  Request,
+  Response,
+} from "express";
 import "express-async-errors";
 import { routes } from "./routes";
 import cors from "cors";
+import { prisma } from "./database/prismaClient";
 
 const app = express();
 

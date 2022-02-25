@@ -25,7 +25,6 @@ const forgotClientController = new ForgotClientController();
 
 routes.post("/client/", createClientController.handle);
 
-//forgot
 routes.post("/forgot-password", forgotClientController.handle);
 
 routes.get(
@@ -49,7 +48,7 @@ routes.get("/client/", ensureAuthenticateClient, getClientController.findAll);
 
 routes.get(
   "/carrying/:id",
-  ensureAuthenticateClient,
+
   getCarryingController.findOne
 );
 
@@ -59,6 +58,10 @@ routes.delete(
   deleteCarryingController.handle
 );
 
-routes.put("/:id", ensureAuthenticateClient, updateCarryingController.handle);
+routes.put(
+  "/carrying/:id",
+  ensureAuthenticateClient,
+  updateCarryingController.handle
+);
 
 export { routes };

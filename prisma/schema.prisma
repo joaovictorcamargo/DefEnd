@@ -20,7 +20,7 @@ model Client {
 }
 
 model Carrying {
-   id       String @id @map("_id") @db.ObjectId
+   id       String @id  @map("_id") @db.ObjectId
   typeOfPerson      String      
   cnpj              String @unique
   stateRegistration String
