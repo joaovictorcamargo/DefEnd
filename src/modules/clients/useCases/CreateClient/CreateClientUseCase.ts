@@ -13,7 +13,7 @@ export class CreateClientUseCase {
       where: {
         username: {
           equals: username,
-          /* mode: "insensitive", */
+          mode: "insensitive",
         },
       },
     });
@@ -23,7 +23,6 @@ export class CreateClientUseCase {
     }
 
     const hashPassword = await hash(password, 10);
-
     const client = await prisma.client.create({
       data: {
         username,

@@ -8,11 +8,11 @@ datasource db {
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["mongoDb"]
+  previewFeatures = ["mongodb"]
 }
 
 model Client {
-  id       String @id  @map("_id") @db.ObjectId
+  id String @id @default(auto()) @map("_id") @db.ObjectId
   username String @unique
   password String
 
@@ -20,7 +20,7 @@ model Client {
 }
 
 model Carrying {
-   id       String @id  @map("_id") @db.ObjectId
+  id String @id @default(auto()) @map("_id") @db.ObjectId
   typeOfPerson      String      
   cnpj              String @unique
   stateRegistration String
@@ -35,10 +35,10 @@ model Carrying {
    email            String @unique
    phone            String @unique
    Observation      String
-
   created_at        DateTime    @default(now())
   updated_at        DateTime    @updatedAt
 
 
   @@map("carryings")
 }
+

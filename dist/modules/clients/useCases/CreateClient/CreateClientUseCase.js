@@ -52,7 +52,7 @@ var CreateClientUseCase = /** @class */ (function () {
                             where: {
                                 username: {
                                     equals: username,
-                                    /* mode: "insensitive", */
+                                    mode: "insensitive",
                                 },
                             },
                         })];

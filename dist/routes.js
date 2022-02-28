@@ -25,14 +25,13 @@ var updateCarryingController = new UpdateCarryingController_1.UpdateCarryingCont
 var getClientController = new GetClientController_1.GetClientController();
 var forgotClientController = new ForgotPasswordController_1.ForgotClientController();
 routes.post("/client/", createClientController.handle);
-//forgot
 routes.post("/forgot-password", forgotClientController.handle);
 routes.get("/carrying/", ensureAuthenticateClient_1.ensureAuthenticateClient, getCarryingController.findAll);
 routes.post("/authenticate", authenticateClientController.handle);
 routes.post("/carrying/", ensureAuthenticateClient_1.ensureAuthenticateClient, createCarryingController.handle);
 routes.get("/client/:id", ensureAuthenticateClient_1.ensureAuthenticateClient, getClientController.findOne);
 routes.get("/client/", ensureAuthenticateClient_1.ensureAuthenticateClient, getClientController.findAll);
-routes.get("/carrying/:id", ensureAuthenticateClient_1.ensureAuthenticateClient, getCarryingController.findOne);
+routes.get("/carrying/:id", getCarryingController.findOne);
 routes.delete("/:id", ensureAuthenticateClient_1.ensureAuthenticateClient, deleteCarryingController.handle);
-routes.put("/:id", ensureAuthenticateClient_1.ensureAuthenticateClient, updateCarryingController.handle);
+routes.put("/carrying/:id", ensureAuthenticateClient_1.ensureAuthenticateClient, updateCarryingController.handle);
 //# sourceMappingURL=routes.js.map
